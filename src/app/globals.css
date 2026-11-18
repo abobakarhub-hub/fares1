@@ -1,0 +1,321 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-cairo);
+  --font-serif: var(--font-amiri);
+  --font-mono: var(--font-cairo);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-parchment: var(--parchment);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.8rem;
+  /* ثيم كوني ذهبي أسطوري */
+  --background: #07060d;
+  --foreground: #f3e9d2;
+  --card: #0e0c18;
+  --card-foreground: #f3e9d2;
+  --popover: #12101f;
+  --popover-foreground: #f3e9d2;
+  --primary: #d4a53f;
+  --primary-foreground: #191204;
+  --secondary: #1c1830;
+  --secondary-foreground: #f3e9d2;
+  --muted: #171426;
+  --muted-foreground: #a99f86;
+  --accent: #b8860b;
+  --accent-foreground: #f3e9d2;
+  --destructive: #8c2f2f;
+  --border: rgba(212, 165, 63, 0.22);
+  --input: rgba(212, 165, 63, 0.25);
+  --ring: #d4a53f;
+  --gold: #d4a53f;
+  --gold-light: #f2d98a;
+  --gold-deep: #8f6a1c;
+  --night: #07060d;
+  --night-2: #100d1c;
+  --parchment: #f3e9d2;
+  --sidebar: #0e0c18;
+  --sidebar-foreground: #f3e9d2;
+  --sidebar-primary: #d4a53f;
+  --sidebar-primary-foreground: #191204;
+  --sidebar-accent: #1c1830;
+  --sidebar-accent-foreground: #f3e9d2;
+  --sidebar-border: rgba(212, 165, 63, 0.22);
+  --sidebar-ring: #d4a53f;
+  --chart-1: #d4a53f;
+  --chart-2: #e8b84b;
+  --chart-3: #b8860b;
+  --chart-4: #f2d98a;
+  --chart-5: #8f6a1c;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-cairo), sans-serif;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(212, 165, 63, 0.45);
+    color: #fff8e7;
+  }
+}
+
+/* ===== خط عربي أنيق للعناوين ===== */
+.font-amiri {
+  font-family: var(--font-amiri), serif;
+}
+
+/* ===== نص ذهبي متدرج أسطوري ===== */
+.gold-text {
+  background: linear-gradient(
+    105deg,
+    #8f6a1c 0%,
+    #f2d98a 25%,
+    #fff3c4 50%,
+    #e8b84b 75%,
+    #b8860b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-line {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(212, 165, 63, 0.65),
+    transparent
+  );
+  height: 1px;
+}
+
+/* ===== خلفية كونية نجمية ===== */
+.cosmic-bg {
+  background:
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(212, 165, 63, 0.09), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(184, 134, 11, 0.07), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 10% 80%, rgba(230, 160, 60, 0.05), transparent 70%),
+    linear-gradient(180deg, #07060d 0%, #0b0918 45%, #07060d 100%);
+}
+
+/* طبقة نجوم ثابتة تتلألأ عبر CSS */
+.star-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 22%, rgba(255, 240, 200, 0.9) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 78% 14%, rgba(255, 224, 170, 0.75) 50%, transparent 52%),
+    radial-gradient(1.4px 1.4px at 32% 78%, rgba(255, 244, 214, 0.7) 50%, transparent 52%),
+    radial-gradient(1px 1px at 62% 55%, rgba(255, 236, 190, 0.8) 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 88% 70%, rgba(255, 232, 180, 0.65) 50%, transparent 52%),
+    radial-gradient(1px 1px at 20% 60%, rgba(255, 240, 200, 0.6) 50%, transparent 52%),
+    radial-gradient(1.3px 1.3px at 45% 8%, rgba(255, 244, 214, 0.8) 50%, transparent 52%),
+    radial-gradient(1px 1px at 70% 88%, rgba(255, 236, 190, 0.7) 50%, transparent 52%),
+    radial-gradient(1.2px 1.2px at 8% 42%, rgba(255, 240, 200, 0.7) 50%, transparent 52%),
+    radial-gradient(1.4px 1.4px at 55% 33%, rgba(255, 232, 180, 0.8) 50%, transparent 52%);
+  background-size: 100vw 100vh;
+  animation: twinkle 5.5s ease-in-out infinite alternate;
+  opacity: 0.85;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.95;
+  }
+}
+
+/* ===== منظومة ثلاثية الأبعاد لبطاقات العلماء ===== */
+.scene-3d {
+  perspective: 1200px;
+}
+.tilt-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+.flip-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.4, 0.1, 0.2, 1.1);
+  will-change: transform;
+}
+.face-3d {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.back-3d {
+  transform: rotateY(180deg);
+}
+.face-3d.flipped-inner {
+  transform: rotateY(180deg);
+}
+
+/* ===== توهج ذهبي ولمعان ===== */
+.glow-gold {
+  box-shadow:
+    0 0 22px rgba(212, 165, 63, 0.18),
+    0 0 60px rgba(212, 165, 63, 0.08),
+    inset 0 0 18px rgba(212, 165, 63, 0.06);
+}
+.glow-gold-strong {
+  box-shadow:
+    0 0 30px rgba(212, 165, 63, 0.35),
+    0 0 90px rgba(212, 165, 63, 0.15);
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.float-slow {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 3.4s ease-in-out infinite;
+}
+
+/* دوران بطيء لختم صانع الموقع */
+@keyframes spin-slower {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slower {
+  animation: spin-slower 24s linear infinite;
+}
+.animate-spin-reverse {
+  animation: spin-slower 32s linear infinite reverse;
+}
+
+/* ===== نسيج هندسي إسلامي (نجمة ثمانية متشابكة) لقسم الإهداء ===== */
+.islamic-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23d4a53f' stroke-opacity='0.14' stroke-width='1'%3E%3Crect x='27' y='27' width='42' height='42'/%3E%3Crect x='27' y='27' width='42' height='42' transform='rotate(45 48 48)'/%3E%3Ccircle cx='48' cy='48' r='5.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 96px 96px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 42%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 42%, #000 25%, transparent 78%);
+}
+
+/* شريط مقولة مأثورة بنكهة تراثية */
+.heritage-quote {
+  border: 1px solid rgba(212, 165, 63, 0.25);
+  background: linear-gradient(180deg, rgba(212, 165, 63, 0.08), rgba(212, 165, 63, 0.03));
+  box-shadow: inset 0 0 14px rgba(212, 165, 63, 0.06);
+}
+
+/* زخرفة نجمية ثمانية */
+.ornate-star {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #f2d98a, #b8860b);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+/* ===== شريط تمرير ذهبي ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0918;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4a53f, #8f6a1c);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f2d98a;
+}
+
+/* تقليل الحركة لمن يفضل ذلك */
+@media (prefers-reduced-motion: reduce) {
+  .star-layer,
+  .float-slow,
+  .pulse-ring,
+  .animate-spin-slower,
+  .animate-spin-reverse {
+    animation: none;
+  }
+}
